@@ -1,0 +1,18 @@
+
+<% @lists.each do |list| %>
+  <li class="ui-state-default"><%= link_to list.name, list %><%= link_to 'Edit', edit_list_path(list) %> | <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+ </li>
+ <% end %>
+
+
+
+<ul id='sortable'>
+<% @lists.each do |list| %>
+<li class="ui-state-default">
+  <h1><%= link_to list.name, list %></h1>
+  <p><%= link_to list.comment, list %></p>
+  <p><%= link_to 'Edit', edit_list_path(list) %> | <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+</li>
+ <% end %>
+
+</ul>
