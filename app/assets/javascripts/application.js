@@ -16,10 +16,21 @@
 
 $(function(){
 
+  function print_lists(data) {
+    console.log(data);
+    var lists_container = $(".lists");
+    _(data).each( function(item){
+      lists_container.append('<li class="ui-state-default">'+item.name+'</li>');
+    });
+  };
+
+  function save_lists(){
+
+  };
+
     $( "#sortable" ).sortable();
     $( "#sortable" ).disableSelection();
 
-  // $.getJSON('localhost:3000/list.json', check_lists)
-  // check_lists();
+  $.getJSON('http://localhost:3000/list.json', print_lists)
 });
 

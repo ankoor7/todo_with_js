@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, alert:"You can't access this page"
   end
 
+  after_filter :set_access_control_headers
+
+  def set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = 'http://localhost:3000/'
+    headers['Access-Control-Request-Method'] = '*'
+  end
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
