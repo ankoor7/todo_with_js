@@ -19,8 +19,17 @@ $(function(){
   function print_lists(data) {
     console.log(data);
     var lists_container = $(".lists");
-    _(data).each( function(item){
-      lists_container.append('<li class="ui-state-default">'+item.name+'</li>');
+    _(data).each( function(list){
+      lists_container.append('<li class="ui-state-default"><h2>'+list.name+'</h2>');
+      // if (list.items.length > 0) {
+      //   _(list.items).each( function (item){
+      //     console.log(item);
+      //   lists_container.append('<p>'+item.name+'</p>');
+      //   lists_container.append('<p>'+item.comment+'</p>');
+      //   });
+      // }
+      lists_container.append('</li>');
+
     });
   };
 
